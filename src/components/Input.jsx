@@ -25,7 +25,7 @@ export default function Input() {
           className={`flex w-full gap-1 justify-center items-center ${isused ? "mt-0" : "mt-3"}`}
         >
           <input
-            className={`bg-slate-800 focus:outline-none focus:ring-1 focus:ring-red-500 w-full text-white flex justify-center items-center border-2 p-2 rounded-2xl flex-1 max-w-[50%]  px-4 `}
+            className={`bg-slate-800 focus:outline-none focus:ring-1 focus:ring-red-500 w-[70%] text-white flex justify-center items-center border-2 p-2 rounded-2xl px-4 max-w-[62rem]`}
             type="text"
             name=""
             id=""
