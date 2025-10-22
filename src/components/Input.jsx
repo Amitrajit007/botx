@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { MessageContext } from "./MessagesContext";
 
 export default function Input() {
+  const { messages, setMessages } = useContext(MessageContext);
+  const [input, setInput] = useState("");
   const [isused, setisUsed] = useState(false);
 
   function handleFirstsubmit() {
