@@ -4,11 +4,23 @@ import { MessageContext } from "./MessagesContext";
 export default function Input() {
   const { messages, setMessages } = useContext(MessageContext);
   const [input, setInput] = useState("");
-  const [isused, setisUsed] = useState(false);
+  const [isused, setIsUsed] = useState(false);
+
+  function handleInputChange(event) {
+    setInput(event.target.value);
+  }
+
+  function handleSubmissionClick() {
+    if (!input.trim()) return;
+    setMessages([...messages, { msg: input, sender: "user" }]);
+    setInput("");
+    setIsUsed(true);
+    console.log(messages);
+  }
 
   function handleFirstsubmit() {
     if (isused) return;
-    setisUsed(true);
+    setIsUsed(true);
   }
   return (
     <div className="absolute w-screen h-screen z-100">
@@ -25,7 +37,7 @@ export default function Input() {
         </div>
 
         <div
-          className={`flex w-full gap-1 justify-center items-center ${isused ? "mt-0" : "mt-3"}`}
+          className={`z-50 flex w-full gap-1 justify-center items-center  ${isused ? "mt-20 fixed bottom-3.5" : "mt-3"}`}
         >
           <input
             className={`bg-slate-800 focus:outline-none focus:ring-1 focus:ring-red-500 w-[70%] text-white flex justify-center items-center border-2 p-2 rounded-2xl px-4 max-w-[62rem]`}
@@ -33,12 +45,20 @@ export default function Input() {
             name=""
             id=""
             placeholder="Ask anything..."
-            onKeyDown={(e) => e.key === "Enter" && handleFirstsubmit()}
+            value={input}
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              (handleFirstsubmit(), handleSubmissionClick())
+            }
+            onChange={handleInputChange}
           />
           <button
             className="text-black text-center bg-red-100 p-2 px-3 rounded-3xl ml-1"
             type="submit"
-            onClick={handleFirstsubmit}
+            onClick={() => {
+              handleFirstsubmit();
+              handleSubmissionClick();
+            }}
           >
             Send
           </button>
