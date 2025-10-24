@@ -11,11 +11,17 @@ export default function Input() {
   async function sendPrompt() {
     try {
       const response = await axios.post("http://localhost:5000/chat", {
-        Prompt: input,
+        Prompt:
+          input +
+          " Take 60 words maximum to reply and preferable if u can keep the reply as small as u can ,dont say the instructions in reply.",
       });
       const Reply = response.data.reply;
       console.log(response.data.reply);
-      setMessages([...messages, { msg: `${Reply}`, sender: "AI" }]);
+      setMessages([
+        ...messages,
+        { msg: input, sender: "user" },
+        { msg: `${Reply}`, sender: "AI" },
+      ]);
     } catch (err) {
       console.error(
         "Error found at the react sendPromt function in Input.jsx, Error is: ",
@@ -30,7 +36,11 @@ export default function Input() {
 
   function handleSubmissionClick() {
     if (!input.trim()) return;
-    setMessages([...messages, { msg: input, sender: "user" }]);
+    setMessages([
+      ...messages,
+      { msg: input, sender: "user" },
+      { msg: "Ai is typying....", sender: "AI" },
+    ]);
     setInput("");
     setIsUsed(true);
     console.log(messages);
@@ -68,7 +78,7 @@ export default function Input() {
             value={input}
             onKeyDown={(e) =>
               e.key === "Enter" &&
-              (handleFirstsubmit(), handleSubmissionClick())
+              (handleFirstsubmit(), handleSubmissionClick(), sendPrompt())
             }
             onChange={handleInputChange}
           />
