@@ -1,6 +1,6 @@
 # ChatBot
 
-A modern, interactive chatbot application built with React and styled with Tailwind CSS. This project features a sleek UI with smooth animations and a responsive design.
+A web-based AI chatbot using React and Express, powered by a local LLaMA3 model via Olama for context-aware conversations.
 
 ## Table of Contents
 
@@ -148,121 +148,44 @@ POST /api/chat/context      # Set conversation context
 
 ## Project Structure
 
-```
-Chat-bot/
-├── assets/
-│   └── logo.webp             # App icon
+chatbot/                                          # Root folder
 │
-├── src/
-│   ├── components/
-│   │   ├──
-│   │   ├── MessagesProvider.jsx    # Context provider for messages
-│   │   ├── ChatInterface.jsx       # Main chat component
-│   │   ├── MessageInput.jsx        # Input component
-│   │   ├── MessageList.jsx         # Message display component
-│   │   └── Background.jsx          # Animated background
-│   │
-│   ├── styles/
-│   │   ├── index.css              # Global styles
-│   │   └── components.css         # Component-specific styles
-│   │
-│   ├── utils/
-│   │   ├── helpers.js             # Utility functions
-│   │   └── constants.js           # App constants
-│   │
-│   └── main.jsx                   # Entry point
+├── client/                                       # Frontend React app
+│     ├── node_modules/                           # Installed npm packages
+│     ├── src/                                    # Source files
+│     │     ├── assets/                           # Static assets like images
+│     │     │ └── logo.webp
+│     │     ├── components/                       # React components
+│     │     │      ├── App.jsx                    # Main App component
+│     │     │      ├── Background.jsx             # Background component
+│     │     │      ├── Chat.jsx                   # Chat UI component
+│     │     │      ├── Footer.jsx                 # Footer component
+│     │     │      ├── Header.jsx                 # Header component
+│     │     │      ├── Input.jsx                  # Input box component
+│     │     │      ├── MessagesContext.jsx        # Messages-related centext
+│     │     │      ├── MessagesProvider.jsx       # Context provider for messages
+│     │     │      ├── RenderChat.jsx             # Render chat UI
+│     │     │      └── Reply.jsx                  # Reply component
+│     │     ├── index.css                         # Global CSS
+│     │     └── main.jsx                          # Entry point for React
+│     │
+│     ├── .eslint/                                # ESLint configuration folder
+│     ├── config.js                               # Config file for client
+│     ├── index.html                              # Main HTML file
+│     ├── package.json                            # npm dependencies & scripts
+│     ├── package-lock.json                       # npm lock file
+│     ├── update.md                               # Update/change log
+│     └── vidconfig.js                            # Video configuration
 │
-├── package.json                   # Dependencies and scripts
-├── tailwind.config.js            # Tailwind CSS configuration
-├── vite.config.js                # Vite configuration
-├── .gitignore                    # Git ignore rules
-└── README.md                     # Project documentation
-```
-
-```
-
-chatbot/
-│
-├── client/
-│ ├── node_modules/
-│ ├── src/
-│ │ ├── assets/
-│ │ │ └── logo.webp
-│ │ ├── components/
-│ │ │ ├── App.jsx
-│ │ │ ├── Background.jsx
-│ │ │ ├── Chat.jsx
-│ │ │ ├── Footer.jsx
-│ │ │ ├── Header.jsx
-│ │ │ ├── Input.jsx
-│ │ │ ├── Messages/
-│ │ │ ├── Context.jsx
-│ │ │ ├── MessagesProvider.jsx
-│ │ │ ├── RenderServer.jsx
-│ │ │ ├── RenderChat.jsx
-│ │ │ └── Reply.jsx
-│ │ ├── index.css
-│ │ └── main.jsx
-│ ├── .eslint/
-│ ├── config.js
-│ ├── index.html
-│ ├── package.json
-│ ├── package-lock.json
-│ ├── update.md
-│ └── vidconfig.js
-│
-├── server/
-│ ├── node_modules/
-│ ├── .env
-│ ├── index.jsx
-│ ├── package.json
-│ └── package-lock.json
+├── server/                                       # Backend Node.js server
+│     ├── node_modules/                           # Installed npm packages
+│     ├── .env                                    # Environment variables
+│     ├── index.js                                # Entry point for server
+│     ├── package.json                            # npm dependencies & scripts
+│     └── package-lock.json                       # npm lock file
 │
 ├── .gitignore
-└── README.md
-
-```
-```
-
-chatbot/ # Root folder
-│
-├── client/ # Frontend React app
-│ ├── node_modules/ # Installed npm packages
-│ ├── src/ # Source files
-│ │ ├── assets/ # Static assets like images
-│ │ │ └── logo.webp
-│ │ ├── components/ # React components
-│ │ │ ├── App.jsx # Main App component
-│ │ │ ├── Background.jsx # Background component
-│ │ │ ├── Chat.jsx # Chat UI component
-│ │ │ ├── Footer.jsx # Footer component
-│ │ │ ├── Header.jsx # Header component
-│ │ │ ├── Input.jsx # Input box component
-│ │ │ ├── Messages/ # Messages-related components
-│ │ │ ├── Context.jsx # React context
-│ │ │ ├── MessagesProvider.jsx # Context provider for messages
-│ │ │ ├── RenderServer.jsx # Render server messages
-│ │ │ ├── RenderChat.jsx # Render chat UI
-│ │ │ └── Reply.jsx # Reply component
-│ │ ├── index.css # Global CSS
-│ │ └── main.jsx # Entry point for React
-│ ├── .eslint/ # ESLint configuration folder
-│ ├── config.js # Config file for client
-│ ├── index.html # Main HTML file
-│ ├── package.json # npm dependencies & scripts
-│ ├── package-lock.json # npm lock file
-│ ├── update.md # Update/change log
-│ └── vidconfig.js # Video configuration
-│
-├── server/ # Backend Node.js server
-│ ├── node_modules/ # Installed npm packages
-│ ├── .env # Environment variables
-│ ├── index.jsx # Entry point for server
-│ ├── package.json # npm dependencies & scripts
-│ └── package-lock.json # npm lock file
-│
-├── .gitignore # Git ignore rules
-└── README.md # Project documentation
+└── README.md                                     # Project documentation
 ```
 ### Key Files Description
 
