@@ -1,10 +1,28 @@
 import React, { useState, useContext } from "react";
+import axios from "axios";
 import { MessageContext } from "./MessagesContext";
 
 export default function Input() {
   const { messages, setMessages } = useContext(MessageContext);
   const [input, setInput] = useState("");
   const [isused, setIsUsed] = useState(false);
+
+  // handle the AI response
+  async function sendPrompt() {
+    try {
+      const response = await axios.post("http://localhost:5000/chat", {
+        Prompt: input,
+      });
+      const Reply = response.data.reply;
+      console.log(response.data.reply);
+      setMessages([...messages, { msg: `${Reply}`, sender: "AI" }]);
+    } catch (err) {
+      console.error(
+        "Error found at the react sendPromt function in Input.jsx, Error is: ",
+        err.message || err,
+      );
+    }
+  }
 
   function handleInputChange(event) {
     setInput(event.target.value);
@@ -20,7 +38,9 @@ export default function Input() {
 
   function handleFirstsubmit() {
     if (isused) return;
-    setIsUsed(true);
+    if (!input.trim() === "") {
+      setIsUsed(true);
+    }
   }
   return (
     <div className="absolute w-screen h-screen z-100">
@@ -58,6 +78,7 @@ export default function Input() {
             onClick={() => {
               handleFirstsubmit();
               handleSubmissionClick();
+              sendPrompt();
             }}
           >
             Send
