@@ -147,7 +147,7 @@ POST /api/chat/context      # Set conversation context
 - `Shift + Enter` - New line (if multiline input is enabled)
 
 ## Project Structure
-
+```
 chatbot/                                          # Root folder
 │
 ├── client/                                       # Frontend React app
@@ -188,17 +188,41 @@ chatbot/                                          # Root folder
 └── README.md                                     # Project documentation
 ```
 ### Key Files Description
-
+```
 | File/Folder | Description |
 |-------------|-------------|
-| `MessagesProvider.jsx` | Central state management for all messages and chat functionality |
-| `ChatInterface.jsx` | Main UI component that renders the chat interface |
-| `MessageInput.jsx` | Handles user input and message sending |
-| `MessageList.jsx` | Displays the conversation history |
-| `Background.jsx` | Creates the animated glowing background effects |
-| `tailwind.config.js` | Configuration for Tailwind CSS customizations |
-| `vite.config.js` | Vite bundler configuration for development and build |
+| `.gitignore` | Specifies intentionally untracked files to ignore |
+| `README.md` | Project documentation and overview |
+| `client/` | Frontend code of the chatbot |
+| `client/config.js` | Frontend configuration file |
+| `client/eslint/` | ESLint configuration and rules |
+| `client/index.html` | Main HTML file for frontend |
+| `client/package.json` | Frontend project dependencies and scripts |
+| `client/package-lock.json` | Lockfile for frontend dependencies |
+| `client/update.md` | Notes or updates related to the frontend |
+| `client/vidconfig.js` | Vite-related configuration |
+| `client/src/` | Source folder containing frontend components and assets |
+| `client/src/index.css` | Main CSS file for styling |
+| `client/src/main.jsx` | Frontend entry point for React app |
+| `client/src/assets/` | Folder containing static assets |
+| `client/src/assets/logo.webp` | Logo image file |
+| `client/src/components/` | Folder containing React components |
+| `client/src/components/App.jsx` | Main App component |
+| `client/src/components/Background.jsx` | Animated glowing background effects |
+| `client/src/components/Chat.jsx` | Chat interface UI component |
+| `client/src/components/Footer.jsx` | Footer component for the UI |
+| `client/src/components/Header.jsx` | Header component for the UI |
+| `client/src/components/Input.jsx` | Handles user input and sending messages |
+| `client/src/components/Messages/` | Folder containing individual message components |
+| `client/src/components/Context.jsx` | Provides React context for app-wide state |
+| `client/src/components/MessagesProvider.jsx` | Central state management for messages and chat functionality |
+| `client/src/components/RenderServer.jsx` | Handles server message rendering |
+| `client/src/components/RenderChat.jsx` | Handles chat message rendering |
+| `client/src/components/Reply.jsx` | Handles reply message rendering |
+| `server/` | Backend code of the chatbot |
+| `server/index.jsx` | Entry point for server |
+| `server/env.env` | Environment variables for backend |
+| `server/package.json` | Backend project dependencies and scripts |
+| `server/package-lock.json` | Lockfile for backend dependencies |
 
 ---
-
-**Made with ❤️ by [Amitrajit007](https://github.com/Amitrajit007)**
