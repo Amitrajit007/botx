@@ -222,7 +222,48 @@ chatbot/
 └── README.md
 
 ```
+```
 
+chatbot/ # Root folder
+│
+├── client/ # Frontend React app
+│ ├── node_modules/ # Installed npm packages
+│ ├── src/ # Source files
+│ │ ├── assets/ # Static assets like images
+│ │ │ └── logo.webp
+│ │ ├── components/ # React components
+│ │ │ ├── App.jsx # Main App component
+│ │ │ ├── Background.jsx # Background component
+│ │ │ ├── Chat.jsx # Chat UI component
+│ │ │ ├── Footer.jsx # Footer component
+│ │ │ ├── Header.jsx # Header component
+│ │ │ ├── Input.jsx # Input box component
+│ │ │ ├── Messages/ # Messages-related components
+│ │ │ ├── Context.jsx # React context
+│ │ │ ├── MessagesProvider.jsx # Context provider for messages
+│ │ │ ├── RenderServer.jsx # Render server messages
+│ │ │ ├── RenderChat.jsx # Render chat UI
+│ │ │ └── Reply.jsx # Reply component
+│ │ ├── index.css # Global CSS
+│ │ └── main.jsx # Entry point for React
+│ ├── .eslint/ # ESLint configuration folder
+│ ├── config.js # Config file for client
+│ ├── index.html # Main HTML file
+│ ├── package.json # npm dependencies & scripts
+│ ├── package-lock.json # npm lock file
+│ ├── update.md # Update/change log
+│ └── vidconfig.js # Video configuration
+│
+├── server/ # Backend Node.js server
+│ ├── node_modules/ # Installed npm packages
+│ ├── .env # Environment variables
+│ ├── index.jsx # Entry point for server
+│ ├── package.json # npm dependencies & scripts
+│ └── package-lock.json # npm lock file
+│
+├── .gitignore # Git ignore rules
+└── README.md # Project documentation
+```
 ### Key Files Description
 
 | File/Folder | Description |
