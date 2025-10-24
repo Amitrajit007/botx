@@ -11,28 +11,37 @@ A web-based AI chatbot using React and Express, powered by a local LLaMA3 model 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
+- [Key Files Description](#Key-Files-Description)
 
 ## Features
 
-- 🌟 **Smooth glowing background** - Eye-catching animated background effects
-- 📱 **Responsive design** - Adapts to different screen sizes
-- 💬 **Interactive chat interface** - Real-time messaging experience
-- 🎯 **Dynamic input positioning** - Input box transitions from center to bottom
-- ⚡ **Fast and lightweight** - Optimized for performance
-- 🎨 **Modern UI/UX** - Clean and intuitive user interface
+-  **Smooth glowing background** - Animated background effects
+-  **Responsive design** - Adapts to different screen sizes
+-  **Interactive chat interface** - Real-time messaging experience
+-  **Dynamic input positioning** - Input box transitions from center to bottom
+-  **Fast and lightweight** - Optimized for performance(the token limits are ≈ 80–90 tokens as of for now) NB:Tokens ≠ Words
 
 ## Tech Stack
 
 ### Frontend
-- **React** - JavaScript library for building user interfaces
-- **Tailwind CSS** - Utility-first CSS framework for styling
-- **JavaScript (ES6+)** - Modern JavaScript features
-- **Vite** - Fast build tool and development server
+- **React** - JavaScript library
+- **Tailwind CSS** - Utility-first CSS framework
+- **Vite** -  Dev server & bundler
+
+### Backend
+- **Node.js** – JS runtime
+- **Express** – Web framework
+- **dotenv** – Env variables
+- **cors** – Cross-origin requests
+
 
 ### Development Tools
+- **Axios** - Promise-based HTTP client
 - **npm** - Package manager
 - **ESLint** - Code linting
 - **Git** - Version control
+- **nodemon** - Testing server
+- **Prettier** - Code formatter
 
 ## How It Works
 
@@ -188,7 +197,7 @@ chatbot/                                          # Root folder
 └── README.md                                     # Project documentation
 ```
 ### Key Files Description
-```
+
 | File/Folder | Description |
 |-------------|-------------|
 | `.gitignore` | Specifies intentionally untracked files to ignore |
@@ -224,5 +233,3 @@ chatbot/                                          # Root folder
 | `server/env.env` | Environment variables for backend |
 | `server/package.json` | Backend project dependencies and scripts |
 | `server/package-lock.json` | Lockfile for backend dependencies |
-
----

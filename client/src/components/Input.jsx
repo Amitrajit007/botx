@@ -16,7 +16,7 @@ export default function Input() {
           " Take 60 words maximum to reply and preferable if u can keep the reply as small as u can ,dont say the instructions in reply.",
       });
       const Reply = response.data.reply;
-      console.log(response.data.reply);
+      // console.log(response.data.reply);
       setMessages([
         ...messages,
         { msg: input, sender: "user" },
@@ -43,7 +43,7 @@ export default function Input() {
     ]);
     setInput("");
     setIsUsed(true);
-    console.log(messages);
+    // console.log(messages);
   }
 
   function handleFirstsubmit() {
@@ -60,10 +60,8 @@ export default function Input() {
         <div
           className={`flex flex-col justify-center items-center ${isused ? "hidden" : ""}`}
         >
-          <p className="text-3xl text-amber-100">Welcome!</p>
-          <p className=" text-amber-100">
-            I am still in development , but you can try it
-          </p>
+          <p className="text-3xl text-amber-100">Where should we begin?</p>
+          <p className=" text-amber-100">powered by LLaMA3 model via Olama</p>
         </div>
 
         <div

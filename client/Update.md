@@ -13,3 +13,4 @@ It is now stateless.
 ## need to send some context to the cli/ API to make it "contextual conversation"
 
 ## create a footer
+## update the doc last portion table
