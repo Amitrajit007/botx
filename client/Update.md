@@ -10,7 +10,10 @@ It is now stateless.
 ```
 <!-- nedd to update from here on-->
 
-## need to send some context to the cli/ API to make it "contextual conversation"
+## need to send some context to the cli/ API to make it "contextual conversation"  -- Done
 
-## create a footer
-## update the doc last portion table
+## create a footer  -- Done
+## update the doc last portion table   -- Done
+
+
+------------------------------All done just refactor it down.....

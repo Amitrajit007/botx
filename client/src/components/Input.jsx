@@ -11,17 +11,16 @@ export default function Input() {
   async function sendPrompt() {
     try {
       const response = await axios.post("http://localhost:5000/chat", {
-        Prompt:
-          input +
-          " Take 60 words maximum to reply and preferable if u can keep the reply as small as u can ,dont say the instructions in reply.",
+        Prompt: input,
       });
       const Reply = response.data.reply;
-      // console.log(response.data.reply);
       setMessages([
         ...messages,
         { msg: input, sender: "user" },
         { msg: `${Reply}`, sender: "AI" },
       ]);
+      // console.log(response.data.reply);ev
+      //
     } catch (err) {
       console.error(
         "Error found at the react sendPromt function in Input.jsx, Error is: ",

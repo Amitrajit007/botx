@@ -4,6 +4,7 @@ A web-based AI chatbot using React and Express, powered by a local LLaMA3 model 
 
 ## Table of Contents
 
+- [UI](#UI)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [How It Works](#how-it-works)
@@ -13,13 +14,22 @@ A web-based AI chatbot using React and Express, powered by a local LLaMA3 model 
 - [Project Structure](#project-structure)
 - [Key Files Description](#Key-Files-Description)
 
+## UI
+### Interface Demo
+
+![Chatbot UI](./images/interface.png)
+
+### Contextual Conversation Demo
+
+![Contextual](./images/chatting.png)
+
 ## Features
 
 -  **Smooth glowing background** - Animated background effects
 -  **Responsive design** - Adapts to different screen sizes
 -  **Interactive chat interface** - Real-time messaging experience
 -  **Dynamic input positioning** - Input box transitions from center to bottom
--  **Fast and lightweight** - Optimized for performance(the token limits are ≈ 80–90 tokens as of for now) NB:Tokens ≠ Words
+-  **Fast and lightweight** - Optimized for performance(the token limits are ≈ 120-130 tokens as of for now) NB:Tokens ≠ Words
 
 ## Tech Stack
 

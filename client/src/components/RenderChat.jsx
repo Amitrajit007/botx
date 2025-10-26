@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
+
 import { MessageContext } from "./MessagesContext.jsx";
 import Chat from "./Chat";
 
@@ -10,6 +11,7 @@ export default function RenderChat() {
   }, [messages]);
 
   // ! render data
+
   return (
     <div className="flex flex-col flex-1 overflow-y-auto pb-42">
       {messages.map((data, index) => (
