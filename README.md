@@ -75,40 +75,44 @@ The application follows a component-based architecture:
 - The `src/components/MessagesProvider.jsx` serves as the central provider component
 - All other components are children of MessagesProvider and have access to the message context
 - State management is handled through React Context API
-- Messages flow from input → provider → display components
+```text
+- Messages flow from React input →  Express  →  Llama generates reply  →  Express  →  React updates chat.
+```
 
 ## About Backend (Endpoints)
 
 ### API Endpoints
 
-> **Note:** This section will be updated as backend functionality is implemented.
-
-**Planned Endpoints:**
+**Endpoints:**
 
 ```bash
 # Message Operations
-POST /api/messages          # Send a new message
-GET  /api/messages          # Retrieve message history
-DELETE /api/messages/:id    # Delete a specific message
-
-# User Operations
-POST /api/users/login       # User authentication
-GET  /api/users/profile     # Get user profile
+POST /api/chat          # Send a new message through
 
 # Chat Operations
-GET  /api/chat/response     # Get bot response
-POST /api/chat/context      # Set conversation context
+post  /api/generate     # Get direct bot raw response
 ```
 
+**Request Format:**
+```json
+{
+    "model": "llama3",
+    "prompt": "What is the color of grass in one word",
+    "stream" : false
+
+}
+```
 **Response Format:**
 ```json
 {
-  "status": "success",
-  "data": {
-    "message": "Response content",
-    "timestamp": "2024-01-01T00:00:00Z"
-  },
-  "error": null
+    "model": "llama3",
+    "created_at": "2025-10-26T22:24:57.3668657Z",
+    "response": "Green.",
+    "done": true,
+    "done_reason": "stop",
+    "context": [
+        128006,
+        271......,
 }
 ```
 
@@ -123,8 +127,8 @@ POST /api/chat/context      # Set conversation context
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Amitrajit007/echo-bot
-   cd Chat-bot
+   git clone https://github.com/Amitrajit007/botx
+   cd Chat-bot #if needed
    ```
 
 2. **Install dependencies:**
@@ -139,31 +143,20 @@ POST /api/chat/context      # Set conversation context
 
 4. **Build for production:**
    ```bash
-   npm run build
-   ```
-
-5. **Preview production build:**
-   ```bash
-   npm run preview
+   npm start
    ```
 
 ## Usage
 
 ### Getting Started
 1. Open your browser and navigate to `http://localhost:5173` (or the port shown in terminal)
-2. The chatbot interface will load with an animated background
-3. Start typing your message in the input field
-4. Press Enter or click Send to submit your message
-5. View the conversation in the chat interface
+2. Start typing your message in the input field
+3. Press Enter or click Send to submit your message
+4. View the conversation in the chat interface
 
 ### Key Features Usage
 - **Sending Messages:** Type in the input field and press Enter
 - **Viewing History:** Scroll through the message list to see previous conversations
-- **Responsive Design:** Access the app on any device - it automatically adapts
-
-### Keyboard Shortcuts
-- `Enter` - Send message
-- `Shift + Enter` - New line (if multiline input is enabled)
 
 ## Project Structure
 ```
@@ -213,15 +206,8 @@ chatbot/                                          # Root folder
 | `.gitignore` | Specifies intentionally untracked files to ignore |
 | `README.md` | Project documentation and overview |
 | `client/` | Frontend code of the chatbot |
-| `client/config.js` | Frontend configuration file |
-| `client/eslint/` | ESLint configuration and rules |
-| `client/index.html` | Main HTML file for frontend |
-| `client/package.json` | Frontend project dependencies and scripts |
-| `client/package-lock.json` | Lockfile for frontend dependencies |
 | `client/update.md` | Notes or updates related to the frontend |
-| `client/vidconfig.js` | Vite-related configuration |
 | `client/src/` | Source folder containing frontend components and assets |
-| `client/src/index.css` | Main CSS file for styling |
 | `client/src/main.jsx` | Frontend entry point for React app |
 | `client/src/assets/` | Folder containing static assets |
 | `client/src/assets/logo.webp` | Logo image file |
@@ -229,17 +215,12 @@ chatbot/                                          # Root folder
 | `client/src/components/App.jsx` | Main App component |
 | `client/src/components/Background.jsx` | Animated glowing background effects |
 | `client/src/components/Chat.jsx` | Chat interface UI component |
-| `client/src/components/Footer.jsx` | Footer component for the UI |
-| `client/src/components/Header.jsx` | Header component for the UI |
 | `client/src/components/Input.jsx` | Handles user input and sending messages |
 | `client/src/components/Messages/` | Folder containing individual message components |
 | `client/src/components/Context.jsx` | Provides React context for app-wide state |
 | `client/src/components/MessagesProvider.jsx` | Central state management for messages and chat functionality |
 | `client/src/components/RenderServer.jsx` | Handles server message rendering |
 | `client/src/components/RenderChat.jsx` | Handles chat message rendering |
-| `client/src/components/Reply.jsx` | Handles reply message rendering |
 | `server/` | Backend code of the chatbot |
 | `server/index.jsx` | Entry point for server |
 | `server/env.env` | Environment variables for backend |
-| `server/package.json` | Backend project dependencies and scripts |
-| `server/package-lock.json` | Lockfile for backend dependencies |
